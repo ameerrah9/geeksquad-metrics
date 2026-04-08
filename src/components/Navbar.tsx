@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
 
 const links = [
-  { to: '/', label: 'Overview' },
-  { to: '/ca', label: 'Consultation' },
-  { to: '/ra', label: 'Repair' },
-  { to: '/at-home', label: 'At-Home' },
-  { to: '/auto-tech', label: 'AutoTech' },
+  { to: '/', label: 'Overview', end: true },
+  { to: '/ca', label: 'Consultation', end: false },
+  { to: '/ra', label: 'Repair', end: false },
+  { to: '/at-home', label: 'At-Home', end: false },
+  { to: '/auto-tech', label: 'AutoTech', end: false },
 ];
 
 export default function Navbar() {
@@ -17,6 +17,7 @@ export default function Navbar() {
           <NavLink
             key={link.to}
             to={link.to}
+            end={link.end}
             className={({ isActive }) =>
               isActive
                 ? 'text-sm font-medium text-foreground'
