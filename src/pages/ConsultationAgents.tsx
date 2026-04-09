@@ -105,6 +105,47 @@ export default function ConsultationAgents() {
           </CardContent>
         </Card>
       </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>Agent Leaderboard</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Agent</TableHead>
+                <TableHead>Consultations</TableHead>
+                <TableHead>Resolved</TableHead>
+                <TableHead>Satisfaction</TableHead>
+                <TableHead>Avg Time</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {consultationAgents.map((agent) => (
+                <TableRow key={agent.name}>
+                  <TableCell className='font-medium'>{agent.name}</TableCell>
+                  <TableCell>{agent.consultations}</TableCell>
+                  <TableCell>{agent.resolved}</TableCell>
+                  <TableCell>
+                    <Badge
+                      variant={
+                        agent.satisfaction >= 95
+                          ? 'default'
+                          : agent.satisfaction >= 90
+                            ? 'secondary'
+                            : 'destructive'
+                      }
+                    >
+                      {agent.satisfaction}%
+                    </Badge>
+                  </TableCell>
+                  <TableCell>{agent.avg_time}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
     </div>
   );
 }
