@@ -216,7 +216,7 @@ export const autoTechAgents = [
     name: 'Blake Turner',
     installs: 64,
     revenue: '$9,280',
-    satisfaction: 96,
+    satisfaction: 86,
     speciality: 'Audio',
   },
   {
